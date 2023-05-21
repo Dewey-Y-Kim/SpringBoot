@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.naver.dcancer.domain.Member;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepositry {
 	private static Map<Long,Member> store = new HashMap<>();
 	private static long sequence = 0L;

@@ -16,7 +16,7 @@ public class repository {
 	@AfterEach
 	public void after() {
 		System.out.println("test");
-		
+		repository.storeclear();
 	}
 	@Test
 	public void save() {
@@ -26,10 +26,14 @@ public class repository {
 			
 			Member result = repository.findById(member.getId()).get();
 			/*
+			** org.assertj.core.api
+			System.out.println("result = "+ ( result == member ));
 			Assertions.assertEquals(result, member); 
 			Assertions.assertEquals(result, null);
 			*/
+			
 			Assertions.assertThat(member).isEqualTo(result);
+			Assertions.assertThat(member).isEqualTo(null);
 			
 	}
 	@Test
@@ -46,7 +50,4 @@ public class repository {
 		Assertions.assertThat(result.size()).isEqualTo(2);
 	}
 	
-	public void Storeclear() {
-		
-	}
 }
